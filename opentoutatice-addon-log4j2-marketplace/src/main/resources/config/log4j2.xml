@@ -6,7 +6,7 @@
         <Pattern>%d{ISO8601} %-5p [%t] [%c] %m%n</Pattern>
       </PatternLayout>
     </Console>
-    <RollingFile name="RUNTIME" fileName="/var/log/nuxeo/runtime.log" filePattern="/var/log/nuxeo/$${date:yyyy-MM}/runtime-%d{dd-MM-yyyy}-%i.log.zip">
+    <RollingFile name="RUNTIME" fileName="${sys:nuxeo.log.dir}/runtime.log" filePattern="${sys:nuxeo.log.dir}/$${date:yyyy-MM}/runtime-%d{dd-MM-yyyy}-%i.log.zip">
       <RegexFilter regex=".+is not granted to.+" onMatch="DENY" onMismatch="ACCEPT"/>
       <PatternLayout>
         <Pattern>%d{ISO8601} %-5p [%t] [%c] %m%n</Pattern>
@@ -16,13 +16,13 @@
         <SizeBasedTriggeringPolicy size="1 MB" />
       </Policies>
       <DefaultRolloverStrategy min="1" max="10" fileIndex="max">
-        <Delete basePath="/var/log/nuxeo" maxDepth="2">
+        <Delete basePath="${sys:nuxeo.log.dir}" maxDepth="2">
           <IfFileName glob="*/runtime-*.log.zip" />
           <IfLastModified age="P3D" />
         </Delete>
       </DefaultRolloverStrategy>
     </RollingFile>
-    <RollingFile name="GRANTING" fileName="/var/log/nuxeo/granting.log" filePattern="/var/log/nuxeo/$${date:yyyy-MM}/granting-%d{dd-MM-yyyy}-%i.log.zip">
+    <RollingFile name="GRANTING" fileName="${sys:nuxeo.log.dir}/granting.log" filePattern="${sys:nuxeo.log.dir}/$${date:yyyy-MM}/granting-%d{dd-MM-yyyy}-%i.log.zip">
       <RegexFilter regex=".+is not granted to.+" onMatch="ACCEPT" onMismatch="DENY"/>
       <PatternLayout>
         <Pattern>%d{ISO8601} %-5p [%t] [%c] %m%n</Pattern>
@@ -32,13 +32,13 @@
         <SizeBasedTriggeringPolicy size="1 MB" />
       </Policies>
       <DefaultRolloverStrategy min="1" max="10" fileIndex="max">
-        <Delete basePath="/var/log/nuxeo" maxDepth="2">
+        <Delete basePath="${sys:nuxeo.log.dir}" maxDepth="2">
           <IfFileName glob="*/granting-*.log.zip" />
           <IfLastModified age="P3D" />
         </Delete>
       </DefaultRolloverStrategy>
     </RollingFile>
-    <RollingFile name="ERROR-FILE" fileName="/var/log/nuxeo/nuxeo-error.log" filePattern="/var/log/nuxeo/$${date:yyyy-MM}/nuxeo-error-%d{dd-MM-yyyy}-%i.log.zip">
+    <RollingFile name="ERROR-FILE" fileName="${sys:nuxeo.log.dir}/nuxeo-error.log" filePattern="${sys:nuxeo.log.dir}/$${date:yyyy-MM}/nuxeo-error-%d{dd-MM-yyyy}-%i.log.zip">
       <PatternLayout>
         <Pattern>%d{ISO8601} %-5p [%t] [%c] %m%n</Pattern>
       </PatternLayout>
@@ -47,13 +47,13 @@
         <SizeBasedTriggeringPolicy size="1 MB" />
       </Policies>
       <DefaultRolloverStrategy min="1" max="10" fileIndex="max">
-        <Delete basePath="/var/log/nuxeo" maxDepth="2">
+        <Delete basePath="${sys:nuxeo.log.dir}" maxDepth="2">
           <IfFileName glob="*/nuxeo-error-*.log.zip" />
           <IfLastModified age="P3D" />
         </Delete>
       </DefaultRolloverStrategy>
     </RollingFile>
-    <RollingFile name="STDERR-FILE" fileName="/var/log/nuxeo/nuxeo-stderr.log" filePattern="/var/log/nuxeo/$${date:yyyy-MM}/nuxeo-stderr-%d{dd-MM-yyyy}-%i.log.zip">
+    <RollingFile name="STDERR-FILE" fileName="${sys:nuxeo.log.dir}/nuxeo-stderr.log" filePattern="${sys:nuxeo.log.dir}/$${date:yyyy-MM}/nuxeo-stderr-%d{dd-MM-yyyy}-%i.log.zip">
       <PatternLayout>
         <Pattern>%d{ISO8601} %-5p [%t] [%c] %m%n</Pattern>
       </PatternLayout>
@@ -62,13 +62,13 @@
         <SizeBasedTriggeringPolicy size="1 MB" />
       </Policies>
       <DefaultRolloverStrategy min="1" max="10" fileIndex="max">
-        <Delete basePath="/var/log/nuxeo" maxDepth="2">
+        <Delete basePath="${sys:nuxeo.log.dir}" maxDepth="2">
           <IfFileName glob="*/nuxeo-stderr-*.log.zip" />
           <IfLastModified age="P3D" />
         </Delete>
       </DefaultRolloverStrategy>
     </RollingFile>
-    <RollingFile name="AUTOMATION" fileName="/var/log/nuxeo/automation.log" filePattern="/var/log/nuxeo/$${date:yyyy-MM}/automation-%d{dd-MM-yyyy}-%i.log.zip">
+    <RollingFile name="AUTOMATION" fileName="${sys:nuxeo.log.dir}/automation.log" filePattern="${sys:nuxeo.log.dir}/$${date:yyyy-MM}/automation-%d{dd-MM-yyyy}-%i.log.zip">
       <PatternLayout>
         <Pattern>%d{ISO8601} %-5p [%t] [%c] %m%n</Pattern>
       </PatternLayout>
@@ -77,13 +77,13 @@
         <SizeBasedTriggeringPolicy size="1 MB" />
       </Policies>
       <DefaultRolloverStrategy min="1" max="10" fileIndex="max">
-        <Delete basePath="/var/log/nuxeo" maxDepth="2">
+        <Delete basePath="${sys:nuxeo.log.dir}" maxDepth="2">
           <IfFileName glob="*/automation-*.log.zip" />
           <IfLastModified age="P3D" />
         </Delete>
       </DefaultRolloverStrategy>
     </RollingFile>
-    <RollingFile name="ELASTIC" fileName="/var/log/nuxeo/elastic.log" filePattern="/var/log/nuxeo/$${date:yyyy-MM}/elastic-%d{dd-MM-yyyy}-%i.log.zip">
+    <RollingFile name="ELASTIC" fileName="${sys:nuxeo.log.dir}/elastic.log" filePattern="${sys:nuxeo.log.dir}/$${date:yyyy-MM}/elastic-%d{dd-MM-yyyy}-%i.log.zip">
       <PatternLayout>
         <Pattern>%d{ISO8601} %-5p [%t] [%c] %m%n</Pattern>
       </PatternLayout>
@@ -92,13 +92,13 @@
         <SizeBasedTriggeringPolicy size="1 MB" />
       </Policies>
       <DefaultRolloverStrategy min="1" max="10" fileIndex="max">
-        <Delete basePath="/var/log/nuxeo" maxDepth="2">
+        <Delete basePath="${sys:nuxeo.log.dir}" maxDepth="2">
           <IfFileName glob="*/elastic-*.log.zip" />
           <IfLastModified age="P3D" />
         </Delete>
       </DefaultRolloverStrategy>
     </RollingFile>
-    <RollingFile name="CLASSLOADER" fileName="/var/log/nuxeo/classloader.log" filePattern="/var/log/nuxeo/$${date:yyyy-MM}/classloader-%d{dd-MM-yyyy}-%i.log.zip">
+    <RollingFile name="CLASSLOADER" fileName="${sys:nuxeo.log.dir}/classloader.log" filePattern="${sys:nuxeo.log.dir}/$${date:yyyy-MM}/classloader-%d{dd-MM-yyyy}-%i.log.zip">
       <PatternLayout>
         <Pattern>%d{ISO8601} %-5p [%t] [%c] %m%n</Pattern>
       </PatternLayout>
@@ -107,13 +107,13 @@
         <SizeBasedTriggeringPolicy size="1 MB" />
       </Policies>
       <DefaultRolloverStrategy min="1" max="10" fileIndex="max">
-        <Delete basePath="/var/log/nuxeo" maxDepth="2">
+        <Delete basePath="${sys:nuxeo.log.dir}" maxDepth="2">
           <IfFileName glob="*/classloader-*.log.zip" />
           <IfLastModified age="P3D" />
         </Delete>
       </DefaultRolloverStrategy>
     </RollingFile>
-    <RollingFile name="TOMCAT" fileName="/var/log/nuxeo/tomcat.log" filePattern="/var/log/nuxeo/$${date:yyyy-MM}/tomcat-%d{dd-MM-yyyy}-%i.log.zip">
+    <RollingFile name="TOMCAT" fileName="${sys:nuxeo.log.dir}/tomcat.log" filePattern="${sys:nuxeo.log.dir}/$${date:yyyy-MM}/tomcat-%d{dd-MM-yyyy}-%i.log.zip">
       <PatternLayout>
         <Pattern>%d{ISO8601} %-5p [%t] [%c] %m%n</Pattern>
       </PatternLayout>
@@ -122,13 +122,13 @@
         <SizeBasedTriggeringPolicy size="1 MB" />
       </Policies>
       <DefaultRolloverStrategy min="1" max="10" fileIndex="max">
-        <Delete basePath="/var/log/nuxeo" maxDepth="2">
+        <Delete basePath="${sys:nuxeo.log.dir}" maxDepth="2">
           <IfFileName glob="*/tomcat-*.log.zip" />
           <IfLastModified age="P3D" />
         </Delete>
       </DefaultRolloverStrategy>
     </RollingFile>
-    <RollingFile name="STORAGE" fileName="/var/log/nuxeo/storage.log" filePattern="/var/log/nuxeo/$${date:yyyy-MM}/storage-%d{dd-MM-yyyy}-%i.log.zip">
+    <RollingFile name="STORAGE" fileName="${sys:nuxeo.log.dir}/storage.log" filePattern="${sys:nuxeo.log.dir}/$${date:yyyy-MM}/storage-%d{dd-MM-yyyy}-%i.log.zip">
       <PatternLayout>
         <Pattern>%d{ISO8601} %-5p [%t] [%c] %m%n</Pattern>
       </PatternLayout>
@@ -137,7 +137,7 @@
         <SizeBasedTriggeringPolicy size="1 MB" />
       </Policies>
       <DefaultRolloverStrategy min="1" max="10" fileIndex="max">
-        <Delete basePath="/var/log/nuxeo" maxDepth="2">
+        <Delete basePath="${sys:nuxeo.log.dir}" maxDepth="2">
           <IfFileName glob="*/storage-*.log.zip" />
           <IfLastModified age="P3D" />
         </Delete>
