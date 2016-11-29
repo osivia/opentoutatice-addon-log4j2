@@ -1,0 +1,22 @@
+<!-- See documentation at http://doc.nuxeo.com/x/HgIz -->
+<package type="addon" name="open-toutatice-addons-log4j2" version="@VERSION@">
+	<title>Addon to leverage the log4j version 2</title>
+	<description>
+		<p>Migrate from log4j version 1 to version 2 with enhanced/advanced functionatities</p>
+	</description>
+	<home-page>http://www.toutatice.fr</home-page>
+	<vendor>Academie de Rennes</vendor>
+	<installer restart="true" />
+	<uninstaller restart="true" />
+	<!-- <hotreload-support>false</hotreload-support> -->
+	<!-- <require-terms-and-conditions-acceptance>false</require-terms-and-conditions-acceptance> -->
+	<nuxeo-validation>none</nuxeo-validation>
+	<production-state>production_ready</production-state>
+	<supported>false</supported>
+	<platforms>
+		<platform>cap-@DISTRIB_VERSION@</platform>
+	</platforms>
+	<dependencies/>
+	<license>LGPL 2.1</license>
+	<license-url>http://www.gnu.org/licenses/lgpl-2.1.html</license-url>
+</package>
