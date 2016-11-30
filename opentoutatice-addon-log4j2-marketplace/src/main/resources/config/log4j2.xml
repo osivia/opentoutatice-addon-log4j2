@@ -1,4 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+APPENDERS CONFIGURATION:
+
+[RUNTIME]
+- Purpose: to gather all common appicative logs
+- Max log volume a day: 100 MB
+- Max aged logs: 7 days  
+
+[GRANTING]
+- Purpose: to gather all appicative logs dealing with the ACL resolution
+- Max log volume a day: 20 MB
+- Max aged logs: 7 days  
+
+[ERROR-FILE]
+- Purpose: Nuxeo native appender to gather error logs
+- Max log volume a day: 20 MB
+- Max aged logs: 7 days  
+
+[STDERR-FILE]
+- Purpose: Nuxeo native appender to gather error logs from stderr channel redirected by Tomcat
+- Max log volume a day: 20 MB
+- Max aged logs: 7 days  
+
+[AUTOMATION]
+- Purpose: Nuxeo native appender to gather logs from the content automation service
+- Max log volume a day: 100 MB
+- Max aged logs: 7 days  
+
+[ELASTIC]
+- Purpose: Nuxeo native appender to gather logs from elasticsearch service
+- Max log volume a day: 100 MB
+- Max aged logs: 7 days  
+
+[CLASSLOADER]
+- Purpose: Nuxeo native appender to gather logs from classloader
+- Max log volume a day: 20 MB
+- Max aged logs: 7 days  
+
+[STORAGE]
+- Purpose: Nuxeo native appender to gather logs from VCS activity
+- Max log volume a day: 100 MB
+- Max aged logs: 7 days  
+ -->
 <Configuration status="trace" name="Nuxeo" packages="">
   <Appenders>
     <Console name="CONSOLE" target="SYSTEM_OUT">
@@ -13,12 +56,12 @@
       </PatternLayout>
       <Policies>
         <TimeBasedTriggeringPolicy/>
-        <SizeBasedTriggeringPolicy size="1 MB" />
+        <SizeBasedTriggeringPolicy size="20 MB" />
       </Policies>
-      <DefaultRolloverStrategy min="1" max="10" fileIndex="max">
+      <DefaultRolloverStrategy min="1" max="5" fileIndex="max">
         <Delete basePath="${sys:nuxeo.log.dir}" maxDepth="2">
           <IfFileName glob="*/runtime-*.log.zip" />
-          <IfLastModified age="P3D" />
+          <IfLastModified age="P7D" />
         </Delete>
       </DefaultRolloverStrategy>
     </RollingFile>
@@ -29,12 +72,12 @@
       </PatternLayout>
       <Policies>
         <TimeBasedTriggeringPolicy/>
-        <SizeBasedTriggeringPolicy size="1 MB" />
+        <SizeBasedTriggeringPolicy size="20 MB" />
       </Policies>
-      <DefaultRolloverStrategy min="1" max="10" fileIndex="max">
+      <DefaultRolloverStrategy min="1" max="1" fileIndex="max">
         <Delete basePath="${sys:nuxeo.log.dir}" maxDepth="2">
           <IfFileName glob="*/granting-*.log.zip" />
-          <IfLastModified age="P3D" />
+          <IfLastModified age="P7D" />
         </Delete>
       </DefaultRolloverStrategy>
     </RollingFile>
@@ -44,12 +87,12 @@
       </PatternLayout>
       <Policies>
         <TimeBasedTriggeringPolicy/>
-        <SizeBasedTriggeringPolicy size="1 MB" />
+        <SizeBasedTriggeringPolicy size="20 MB" />
       </Policies>
-      <DefaultRolloverStrategy min="1" max="10" fileIndex="max">
+      <DefaultRolloverStrategy min="1" max="1" fileIndex="max">
         <Delete basePath="${sys:nuxeo.log.dir}" maxDepth="2">
           <IfFileName glob="*/nuxeo-error-*.log.zip" />
-          <IfLastModified age="P3D" />
+          <IfLastModified age="P7D" />
         </Delete>
       </DefaultRolloverStrategy>
     </RollingFile>
@@ -59,12 +102,12 @@
       </PatternLayout>
       <Policies>
         <TimeBasedTriggeringPolicy/>
-        <SizeBasedTriggeringPolicy size="1 MB" />
+        <SizeBasedTriggeringPolicy size="20 MB" />
       </Policies>
-      <DefaultRolloverStrategy min="1" max="10" fileIndex="max">
+      <DefaultRolloverStrategy min="1" max="1" fileIndex="max">
         <Delete basePath="${sys:nuxeo.log.dir}" maxDepth="2">
           <IfFileName glob="*/nuxeo-stderr-*.log.zip" />
-          <IfLastModified age="P3D" />
+          <IfLastModified age="P7D" />
         </Delete>
       </DefaultRolloverStrategy>
     </RollingFile>
@@ -74,12 +117,12 @@
       </PatternLayout>
       <Policies>
         <TimeBasedTriggeringPolicy/>
-        <SizeBasedTriggeringPolicy size="1 MB" />
+        <SizeBasedTriggeringPolicy size="20 MB" />
       </Policies>
-      <DefaultRolloverStrategy min="1" max="10" fileIndex="max">
+      <DefaultRolloverStrategy min="1" max="5" fileIndex="max">
         <Delete basePath="${sys:nuxeo.log.dir}" maxDepth="2">
           <IfFileName glob="*/automation-*.log.zip" />
-          <IfLastModified age="P3D" />
+          <IfLastModified age="P7D" />
         </Delete>
       </DefaultRolloverStrategy>
     </RollingFile>
@@ -89,12 +132,12 @@
       </PatternLayout>
       <Policies>
         <TimeBasedTriggeringPolicy/>
-        <SizeBasedTriggeringPolicy size="1 MB" />
+        <SizeBasedTriggeringPolicy size="20 MB" />
       </Policies>
-      <DefaultRolloverStrategy min="1" max="10" fileIndex="max">
+      <DefaultRolloverStrategy min="1" max="5" fileIndex="max">
         <Delete basePath="${sys:nuxeo.log.dir}" maxDepth="2">
           <IfFileName glob="*/elastic-*.log.zip" />
-          <IfLastModified age="P3D" />
+          <IfLastModified age="P7D" />
         </Delete>
       </DefaultRolloverStrategy>
     </RollingFile>
@@ -104,12 +147,12 @@
       </PatternLayout>
       <Policies>
         <TimeBasedTriggeringPolicy/>
-        <SizeBasedTriggeringPolicy size="1 MB" />
+        <SizeBasedTriggeringPolicy size="20 MB" />
       </Policies>
-      <DefaultRolloverStrategy min="1" max="10" fileIndex="max">
+      <DefaultRolloverStrategy min="1" max="1" fileIndex="max">
         <Delete basePath="${sys:nuxeo.log.dir}" maxDepth="2">
           <IfFileName glob="*/classloader-*.log.zip" />
-          <IfLastModified age="P3D" />
+          <IfLastModified age="P7D" />
         </Delete>
       </DefaultRolloverStrategy>
     </RollingFile>
@@ -119,12 +162,12 @@
       </PatternLayout>
       <Policies>
         <TimeBasedTriggeringPolicy/>
-        <SizeBasedTriggeringPolicy size="1 MB" />
+        <SizeBasedTriggeringPolicy size="20 MB" />
       </Policies>
-      <DefaultRolloverStrategy min="1" max="10" fileIndex="max">
+      <DefaultRolloverStrategy min="1" max="1" fileIndex="max">
         <Delete basePath="${sys:nuxeo.log.dir}" maxDepth="2">
           <IfFileName glob="*/tomcat-*.log.zip" />
-          <IfLastModified age="P3D" />
+          <IfLastModified age="P7D" />
         </Delete>
       </DefaultRolloverStrategy>
     </RollingFile>
@@ -134,12 +177,12 @@
       </PatternLayout>
       <Policies>
         <TimeBasedTriggeringPolicy/>
-        <SizeBasedTriggeringPolicy size="1 MB" />
+        <SizeBasedTriggeringPolicy size="20 MB" />
       </Policies>
-      <DefaultRolloverStrategy min="1" max="10" fileIndex="max">
+      <DefaultRolloverStrategy min="1" max="5" fileIndex="max">
         <Delete basePath="${sys:nuxeo.log.dir}" maxDepth="2">
           <IfFileName glob="*/storage-*.log.zip" />
-          <IfLastModified age="P3D" />
+          <IfLastModified age="P7D" />
         </Delete>
       </DefaultRolloverStrategy>
     </RollingFile>
@@ -202,8 +245,9 @@
     <Logger name="org.nuxeo.runtime.jboss.deployment.NuxeoDeployer" level="info"/>
     <Logger name="org.nuxeo.runtime.tomcat.NuxeoDeployer" level="info"/>
 <!-- Display INFO logs for automation traces when activated -->
-<!-- Add <AppenderRef ref="AUTOMATION" /> if using AUTOMATION appender-->
-    <Logger name="org.nuxeo.ecm.automation.core" level="info"/>
+    <Logger name="org.nuxeo.ecm.automation.core" level="info">
+    	<AppenderRef ref="AUTOMATION" />
+    </Logger>
     <Logger name="javax.enterprise.resource.webcontainer.jsf.renderkit" level="info"/>
     <Logger name="javax.enterprise.resource.webcontainer.jsf.application" level="info"/>
     <Logger name="javax.enterprise.resource.webcontainer.jsf.lifecycle" level="info"/>
