@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>opentoutatice-ecm.log4j2</groupId>
 		<artifactId>opentoutatice-log4j2-parent</artifactId>
-		<version>1.0.0-SNAPSHOT</version>
+		<version>1.0.0-RC03</version>
 	</parent>
 	<artifactId>opentoutatice-addon-log4j2-marketplace</artifactId>
 	<packaging>zip</packaging>
@@ -65,7 +65,7 @@
 	</build>
 
 	<scm>
-		<developerConnection>scm:svn:http://projet.toutatice.fr/repos/toutatice-ecm/opentoutatice-addons/opentoutatice-log4j2/trunk</developerConnection>
+		<developerConnection>scm:svn:http://projet.toutatice.fr/repos/toutatice-ecm/opentoutatice-addons/opentoutatice-log4j2/tags/1.0.0-RC03/trunk</developerConnection>
 	</scm>
 
 	<distributionManagement>
