@@ -3,5 +3,5 @@
 	<delete failonerror="false" file="${env.server.home}/lib/log4j-1.2.17.jar"/>
 	<delete failonerror="false" file="${env.server.home}/lib/log4j.xml"/>
 	<update file="${package.root}/install/lib" todir="${env.server.home}/lib"/>
-	<copy file="${package.root}/install/config/log4j2.xml" todir="${env.server.home}/lib" overwrite="true"/>
+	<update file="${package.root}/install/config/log4j2.xml" todir="${env.server.home}/lib" overwrite="true"/>
 </install>
