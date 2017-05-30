@@ -2,7 +2,7 @@
 <package type="addon" name="open-toutatice-addons-log4j2" version="@VERSION@">
 	<title>Addon to leverage the log4j version 2</title>
 	<description>
-		<p>Migrate from log4j version 1 to version 2 with enhanced/advanced functionatities</p>
+		<p>Migrate from log4j version 1 to version 2 with enhanced/advanced functionalities</p>
 	</description>
 	<home-page>http://www.toutatice.fr</home-page>
 	<vendor>Academie de Rennes</vendor>
