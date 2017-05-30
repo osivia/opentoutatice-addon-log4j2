@@ -3,12 +3,12 @@
 APPENDERS CONFIGURATION:
 
 [RUNTIME]
-- Purpose: to gather all common appicative logs
+- Purpose: to gather all common applicative logs
 - Max log volume a day: 100 MB
 - Max aged logs: 7 days  
 
 [GRANTING]
-- Purpose: to gather all appicative logs dealing with the ACL resolution
+- Purpose: to gather all applicative logs dealing with the ACL resolution
 - Max log volume a day: 20 MB
 - Max aged logs: 7 days  
 
